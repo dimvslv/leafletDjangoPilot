@@ -8,4 +8,4 @@ from .models import CSVLocation
 
 admin.site.register(CSVLocation)
 
-print('helloworld')
+print('helloworld!')
