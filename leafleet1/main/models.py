@@ -10,3 +10,7 @@ class CSVLocation(models.Model):
 
     def __str__(self):
         return self.object_name
+
+    class Meta:
+        verbose_name = 'Данные CSV файла'
+        verbose_name_plural = 'Данные CSV файла'
