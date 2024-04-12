@@ -5,7 +5,7 @@ from .models import CSVLocation
 
 
 def index(request):
-    bus_stops = list(CSVLocation.objects.values('longitude', 'latitude')[:100])
+    bus_stops = list(CSVLocation.objects.values('longitude', 'latitude')[:])
     # проверка содержимого словаря print(bus_stops[:10])
     context = {'bus_stops': bus_stops}
     return render(request, 'main/index.html', context)
