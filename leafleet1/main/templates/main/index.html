@@ -3,14 +3,15 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
-
+<!-- Секция заголовка с улучшенным стилем -->
 <section class="hero-section">
     <div class="hero-container">
         <h1>Интерактивная карта города Алматы</h1>
-        <p>Остановки общественного транспорта (данные OpenStreetMap)</p>
+        <p>Исследуйте остановки общественного транспорта на карте в реальном времени</p>
     </div>
 </section>
 
+<!-- Карта города -->
 <div id="map" style="height: 600px; width: 100%;"></div>
 
 {{ bus_stops|json_script:"bus_stops_json" }}
@@ -31,17 +32,20 @@
     })
 
 </script>
+
 {% endblock %}
 
 {% block extra_styles %}
 <style>
+    /* Общее оформление страницы */
     body {
-        font-family: "Circe Bold", Circe;
+        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f4f4f9;
     }
 
+    /* Секция hero с заголовком */
     .hero-section {
         background-color: #4CAF50;
         color: white;
@@ -49,7 +53,7 @@
         text-align: center;
     }
 
-    .hero-container h1{
+    .hero-container h1 {
         font-size: 3rem;
         margin: 0;
     }
@@ -59,6 +63,7 @@
         margin-top: 10px;
     }
 
+    /* Стили для карты */
     #map {
         border: 2px solid #ddd;
         border-radius: 8px;
