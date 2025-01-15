@@ -3,13 +3,19 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
-<h1>Интерактивная карта города Алматы</h1>
-<div id="map" style="height: 600px; width: 1200px;"></div>
+
+<section class="hero-section">
+    <div class="hero-container">
+        <h1>Интерактивная карта города Алматы</h1>
+        <p>Остановки общественного транспорта (данные OpenStreetMap)</p>
+    </div>
+</section>
+
+<div id="map" style="height: 600px; width: 100%;"></div>
 
 {{ bus_stops|json_script:"bus_stops_json" }}
 
 <script>
-
     var map = L.map('map').setView([43.25, 76.95], 11);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -25,4 +31,39 @@
     })
 
 </script>
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    body {
+        font-family: "Circe Bold", Circe;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+    }
+
+    .hero-section {
+        background-color: #4CAF50;
+        color: white;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .hero-container h1{
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    .hero-container p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    #map {
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+</style>
 {% endblock %}
